@@ -1,1 +1,34 @@
+mini_turtle/
+│
+├── mini_turtle/
+│   ├── __init__.py
+│   └── drawer_logic.py
+│
+└── main.py
+
+# drawer_logic.py
+
+posicion_x = 0
+
+
+def adelante(pasos):
+    global posicion_x
+    posicion_x += pasos
+    print(f"Avanzando {pasos} pasos → posición x = {posicion_x}")
+
+
+def abajo(pasos):
+    print(f"Bajando {pasos} pasos")
+
+
+def reiniciar():
+    global posicion_x
+    posicion_x = 0
+    print("Posición reiniciada a 0")
+
+from .drawer_logic import adelante, abajo, reiniciar
+
+__all__ = ["adelante", "abajo", "reiniciar"]
+
+from mini_turtle import adelante, abajo, reiniciar
 
