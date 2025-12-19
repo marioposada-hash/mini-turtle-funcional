@@ -1,0 +1,82 @@
+🚀 REALIZACION DEL EJECICIO NRO. 1 🚀
+
+    # mini_tracker (Versión Funcional)
+
+Paquete simple en Python para registrar tiempo de trabajo usando
+estado global y funciones.
+
+## Funciones públicas
+
+- iniciar_tarea(tarea)
+- detener_tarea(tiempo_trabajado)
+- consultar_total()
+
+## Ejemplo de uso
+
+```python
+from mini_tracker import iniciar_tarea, detener_tarea, consultar_total
+
+iniciar_tarea("Estudio")
+detener_tarea(2.0)
+
+print(consultar_total())
+
+
+
+    
+"""
+Lógica de negocio del mini tracker (versión funcional).
+Mantiene un estado global del tiempo total acumulado.
+"""
+
+# Estado global
+tiempo_total_acumulado = 0.0
+
+
+def iniciar_tarea(tarea):
+    """
+    Inicia una tarea.
+    En esta versión solo muestra el nombre de la tarea.
+    """
+    print(f"Iniciando tarea: {tarea}")
+
+
+def detener_tarea(tiempo_trabajado):
+    """
+    Detiene la tarea y acumula el tiempo trabajado.
+    Usa estado global.
+    """
+    global tiempo_total_acumulado
+    tiempo_total_acumulado += tiempo_trabajado
+
+
+def consultar_total():
+    """
+    Devuelve el tiempo total acumulado.
+    """
+    return tiempo_total_acumulado
+
+    """
+Interfaz pública del paquete mini_tracker.
+No expone el estado global, solo las funciones.
+"""
+
+from .time_logic import iniciar_tarea, detener_tarea, consultar_total
+
+    from mini_tracker import iniciar_tarea, detener_tarea, consultar_total
+
+# Simulación de flujo de trabajo
+iniciar_tarea("Desarrollo del módulo A")
+detener_tarea(2.5)
+
+iniciar_tarea("Corrección de errores")
+detener_tarea(1.5)
+
+total = consultar_total()
+print(f"Tiempo total trabajado: {total} horas")
+
+Iniciando tarea: Desarrollo del módulo A
+Iniciando tarea: Corrección de errores
+Tiempo total trabajado: 4.0 horas
+
+
